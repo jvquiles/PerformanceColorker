@@ -15,9 +15,9 @@ namespace PerformanceColorker.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Performance()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Performance checker";
 
             return View();
         }
@@ -32,7 +32,8 @@ namespace PerformanceColorker.Controllers
         [HttpGet]
         public double GetValue(string guid)
         {
-            int milliseconds = 1000;
+            Random random = new Random();
+            int milliseconds = random.Next(500, 1500);
             Thread.Sleep(milliseconds);
 
             return (DateTime.UtcNow - UnixEpoch).TotalMilliseconds;
